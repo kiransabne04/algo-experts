@@ -34,10 +34,38 @@ func MaxProduct(arr []int) int {
 	return globalMax
 }
 
+func MinSum(array []int) int {
+	globalMin := array[0]
+	localMin := array[0]
+
+	for i := 1; i < len(array); i++ {
+		localMin = min(array[i], localMin + array[i])
+		globalMin = min(globalMin, localMin)
+	}
+	return globalMin
+}
+
 func MaxSumCircularSubarray(array []int) int {
 	array = []int{1, -2, 3, -2}
 
-	globalMax := array[0]
-	localMax := array[0]
-	
+	maxKadane := MaxSum(array)
+
+	minKadane := MinSum(array)
+
+	total := totalSum(array)
+
+	if total == minKadane {
+		// if all elements are negative then return 
+		return maxKadane
+	}
+
+	return max(maxKadane, total-minKadane)
+}
+
+func totalSum(arr []int) int {
+	sum := 0
+	for _, v := range arr {
+		sum += v
+	}
+	return sum
 }
