@@ -41,6 +41,7 @@ func ValidIPAddresses(str string) []string {
 
 func backtracking(str string, start int, parts []string, result *[]string) {
 	//start := 0
+	fmt.Println(str, start, parts, result)
 	if len(parts) == 4 {
 		if len(str) == start {
 			*result = append(*result, fmt.Sprintf("%s.%s.%s.%s", parts[0], parts[1], parts[2], parts[3]))

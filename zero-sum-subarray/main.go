@@ -2,29 +2,32 @@ package main
 
 import "fmt"
 
-func main(){
+func main() {
 	array := []int{-5, -5, 2, 3, -2}
 	val := ZeroSumSubarray(array)
 	fmt.Println(val)
 }
 
-
-func ZeroSumSubarray(nums []int) bool {
-	// Write your code here.
-	prefixSum := 0
-	prefixSumMap := make(map[int]int)
-	for i := 0; i < len(nums); i++{
-		prefixSum += nums[i]
-
-		if prefixSum == 0 {
+func ZeroSumSubarray(arr []int) bool {
+	runningSum := 0
+	seenSumIndex := make(map[int]int)
+	for i := 0; i < len(arr); i++ {
+		runningSum += arr[i]
+		fmt.Println("running sum", runningSum)
+		if runningSum == 0 {
 			return true
 		}
 
-		if _, exist := prefixSumMap[prefixSum]; exist {
+		// check if running sum is found in map
+		if _, found := seenSumIndex[runningSum]; found {
+			fmt.Println("found the required value ", runningSum, "we are looking for in the map")
 			return true
 		}
 
-		prefixSumMap[prefixSum] = i
+		seenSumIndex[runningSum] = i
 	}
+	fmt.Println(seenSumIndex)
+
 	return false
+
 }
