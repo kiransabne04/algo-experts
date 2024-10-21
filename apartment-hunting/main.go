@@ -127,7 +127,7 @@ func ApartmentHunting(blocks []Block, reqs []string) int {
 				countAway++
 			}
 
-			// update blockDist, the elements should be max of both value in index in both above loop
+			// update blockDist, the elements should be min of both value in index in both above loop
 			// blockDist[blockIdx] = countAway
 			fmt.Println("reversePass i, v", blockIdx, countAway)
 			blockDist[blockIdx] = min(blockDist[blockIdx], countAway)

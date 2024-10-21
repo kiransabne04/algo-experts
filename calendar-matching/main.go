@@ -152,7 +152,7 @@ func mergeOccupiedBounds(calendar1Time []timeint, calendar2Time []timeint) []tim
 		} else {
 			mergedBookedBounds = append(mergedBookedBounds, calendar2Time[j])
 			j++
-		} 
+		} 	
 	}
 
 	// check for remaining elements in calendersTime & also merge them
