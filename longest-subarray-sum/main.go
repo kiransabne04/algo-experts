@@ -13,6 +13,12 @@ func LongestSubArrayWithSum(arr []int, k int) []int {
 	currentSum := 0
 	res := [2]int{}
 
+	if len(arr) == 0 {
+		res[0] = 0
+		res[1] = 0
+		return res[:]
+	}
+
 	for i := 0; i < len(arr); i++ {
 		fmt.Println("->", start, i, arr[i])
 		currentSum += arr[i]
