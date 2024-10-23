@@ -1,0 +1,107 @@
+<!-- 2. Smallest Subarray with a Given Sum
+Problem: Given an array of integers and a number S, find the length of the smallest subarray whose sum is greater than or equal to S.
+Approach: Sliding window with variable window size.
+Example:
+plaintext
+Copy code
+Input: arr = [2, 1, 5, 2, 3, 2], S = 7
+Output: 2 -->
+
+
+
+
+Explanation: The smallest subarray with a sum of at least 7 is [5, 2].
+3. Longest Substring with K Distinct Characters
+Problem: Given a string, find the length of the longest substring that contains no more than K distinct characters.
+Approach: Sliding window with character frequency tracking.
+Example:
+plaintext
+Copy code
+Input: s = "araaci", K = 2
+Output: 4
+Explanation: The longest substring with 2 distinct characters is "araa".
+4. Maximum Number of Vowels in a Substring of Given Length
+Problem: Given a string and a number K, find the maximum number of vowels in any substring of length K.
+Approach: Sliding window with fixed size.
+Example:
+plaintext
+Copy code
+Input: s = "abciiidef", K = 3
+Output: 3
+Explanation: The substring "iii" contains 3 vowels.
+5. Permutation in String
+Problem: Given two strings s1 and s2, return true if s2 contains a permutation of s1.
+Approach: Sliding window with frequency counting.
+Example:
+plaintext
+Copy code
+Input: s1 = "abc", s2 = "eidbaooo"
+Output: true
+Explanation: "baooo" contains a permutation of "abc".
+6. Longest Substring with At Most Two Distinct Characters
+Problem: Given a string, find the length of the longest substring that contains at most two distinct characters.
+Approach: Sliding window with variable size.
+Example:
+plaintext
+Copy code
+Input: s = "eceba"
+Output: 3
+Explanation: The longest substring with 2 distinct characters is "ece".
+7. Subarrays with Product Less than K
+Problem: Given an array of integers, find the number of contiguous subarrays where the product of the elements is less than K.
+Approach: Sliding window with variable size.
+Example:
+plaintext
+Copy code
+Input: arr = [10, 5, 2, 6], K = 100
+Output: 8
+Explanation: The subarrays with products less than 100 are [10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6].
+8. Maximum Sliding Window
+Problem: Given an array of integers, find the maximum value in every sliding window of size K.
+Approach: Use a deque (or a sliding window with a data structure that allows you to efficiently keep track of the maximum).
+Example:
+plaintext
+Copy code
+Input: nums = [1,3,-1,-3,5,3,6,7], K = 3
+Output: [3, 3, 5, 5, 6, 7]
+Explanation: The maximum values in each sliding window of size 3 are [3, 3, 5, 5, 6, 7].
+9. Longest Repeating Character Replacement
+Problem: Given a string s and an integer k, you can choose any character from the string and replace it with any other character at most k times. Return the length of the longest substring containing the same letter after making the replacements.
+Approach: Sliding window with character frequency tracking.
+Example:
+plaintext
+Copy code
+Input: s = "AABABBA", k = 1
+Output: 4
+Explanation: Replace one 'A' with a 'B' to get "AABBBBA". The longest substring is "BBBB" with length 4.
+10. Minimum Window Substring
+Problem: Given two strings s and t, return the minimum window in s which contains all the characters of t.
+Approach: Sliding window with frequency count and variable window size.
+Example:
+plaintext
+Copy code
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+Explanation: The minimum window containing all characters from "ABC" is "BANC".
+11. Find All Anagrams in a String
+Problem: Given a string s and a string p, return all the start indices of p's anagrams in s.
+Approach: Sliding window with character frequency count.
+Example:
+plaintext
+Copy code
+Input: s = "cbaebabacd", p = "abc"
+Output: [0, 6]
+Explanation: The substring "cba" and "bac" are anagrams of "abc".
+12. Longest Substring with All Unique Characters
+Problem: Given a string, find the length of the longest substring with all unique characters.
+Approach: Sliding window with a set to track unique characters.
+Example:
+plaintext
+Copy code
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The longest substring with unique characters is "abc".
+Why These Problems are Useful for Sliding Window Practice:
+Dynamic window sizes: Many of these problems involve expanding or shrinking a window dynamically, which helps you practice handling variable-sized windows.
+Character or number tracking: Some problems involve counting frequencies (for example, of characters), which teaches you how to efficiently maintain state within a sliding window.
+Efficiency: Solving problems like these using sliding window helps you move from brute-force solutions (e.g., O(n²)) to more efficient solutions (O(n)).
