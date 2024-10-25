@@ -61,3 +61,19 @@ func isPartValid(str string) bool {
 	}
 	return num >= 0 && num <= 255
 }
+
+func isValidPart1(inputPart string) bool {
+	if len(inputPart) == 0 || len(inputPart) > 3 {
+		return false
+	}
+
+	if len(inputPart) > 1 && inputPart[0] == '0' {
+		return false
+	}
+
+	num, err := strconv.Atoi(inputPart)
+	if err != nil {
+		return false
+	}
+	return num >= 0 && num <= 255
+}
