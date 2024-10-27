@@ -12,13 +12,33 @@ type LinkedList struct {
 
 func main() {
 
-	list := &LinkedList{Value: 2}
-	list.Next = &LinkedList{Value: 7}
+	list := &LinkedList{Value: 1}
+	list.Next = &LinkedList{Value: 2}
 	list.Next.Next = &LinkedList{Value: 3}
-	list.Next.Next.Next = &LinkedList{Value: 5}
+	list.Next.Next.Next = &LinkedList{Value: 4}
+	list.Next.Next.Next.Next = &LinkedList{Value: 5}
+	list.Next.Next.Next.Next.Next = &LinkedList{Value: 6}
+	list.Next.Next.Next.Next.Next.Next = &LinkedList{Value: 7}
+	list.Next.Next.Next.Next.Next.Next.Next = &LinkedList{Value: 8}
+
 	fmt.Println(list)
-	val := MiddleNode(list)
+	val := MiddleNode1(list)
 	fmt.Println(val)
+}
+
+func MiddleNode1(ll *LinkedList) *LinkedList {
+	slowPtr := ll
+	fastPtr := ll
+
+	for fastPtr != nil && fastPtr.Next != nil {
+		fastPtr = fastPtr.Next.Next
+		slowPtr = slowPtr.Next
+		if fastPtr != nil { // Check if fastPtr is not nil before accessing its value
+			fmt.Println("SlowPtr, fastPtr -> ", slowPtr.Value, fastPtr.Value)
+		}
+	}
+
+	return slowPtr
 }
 
 func MiddleNode(linkedList *LinkedList) *LinkedList {

@@ -2,10 +2,9 @@ package main
 
 import "fmt"
 
-// task is to implement doubly linked list
 type Node struct {
-	ID         string
-	Value      int
+	ID string
+	Value int
 	Prev, Next *Node
 }
 
@@ -13,56 +12,45 @@ type DoublyLinkedList struct {
 	Head, Tail *Node
 }
 
+
 func NewDoublyLinkedList() *DoublyLinkedList {
-	return &DoublyLinkedList{Head: nil, Tail: nil}
+	// Write your code here.
+	return &DoublyLinkedList{}
 }
 
-func (ll *DoublyLinkedList) setHead(node *Node) {
+func (ll *DoublyLinkedList) SetHead(node *Node) {
+	// Write your code here.
 	if ll.Head == nil {
 		ll.Head = node
 		ll.Tail = node
 		return
 	}
-	ll.insertBefore(ll.Head, node)
+	ll.InsertBefore(ll.Head, node)
+	
 }
 
-func (ll *DoublyLinkedList) setTail(node *Node) {
+func (ll *DoublyLinkedList) SetTail(node *Node) {
+	// Write your code here.
 	if ll.Tail == nil {
-		ll.setHead(node)
-
+		ll.SetHead(node)
 		return
 	}
-	ll.insertAfter(ll.Tail, node)
+	ll.InsertAfter(ll.Tail, node)
+
 }
 
-func (ll *DoublyLinkedList) printForward() {
-	node := ll.Head
-	for node != nil {
-		fmt.Printf("%d <-> ", node.Value)
-		node = node.Next
-	}
-	fmt.Println(nil)
-}
-
-func (ll *DoublyLinkedList) printBackward() {
-	node := ll.Tail
-	for node != nil {
-		fmt.Printf("%d <-> ", node.Value)
-		node = node.Prev
-	}
-}
-
-// InsertBefore inserts the nodeToInsert before the given node
-func (ll *DoublyLinkedList) insertBefore(node, nodeToInsert *Node) {
-	// 10 <> 20 <> 30 <> 40 <> 50 <> 60 <> 70 | i want to add node 100 before node 30
+func (ll *DoublyLinkedList) InsertBefore(node, nodeToInsert *Node) {
+	// Write your code here.
+	// 10 <> 20 <> (100) <> 30 <> 40 <> 50 <> 60 <> 70 | i want to add node 100 before node 30
 	if nodeToInsert == ll.Head && nodeToInsert == ll.Tail {
-		return
+		return 
 	}
 
-	ll.remove(nodeToInsert)
+	ll.Remove(nodeToInsert)
 
 	nodeToInsert.Prev = node.Prev
 	nodeToInsert.Next = node
+
 	if node.Prev == nil {
 		ll.Head = nodeToInsert
 	} else {
@@ -73,101 +61,115 @@ func (ll *DoublyLinkedList) insertBefore(node, nodeToInsert *Node) {
 
 }
 
-// insertAtPosition inserts nodeToInsert at the specified position.
-func (ll *DoublyLinkedList) insertAtPosition(position int, inputNode *Node) {
+func (ll *DoublyLinkedList) InsertAfter(node, nodeToInsert *Node) {
+	// Write your code here.
+	// 10 <> 20 <> 30 <> 40 <> 50 <> 60 <> 70 | i want to add node 100 after node 30
+	if nodeToInsert == ll.Head && nodeToInsert == ll.Tail {
+		return
+	}
+	ll.Remove(nodeToInsert)
+
+	nodeToInsert.Prev = node
+	nodeToInsert.Next = node.Next
+
+	if node.Next == nil {
+		ll.Tail = nodeToInsert
+	} else {
+		// if node.Next is not nil
+		node.Next.Prev = nodeToInsert
+	}
+	node.Next = nodeToInsert
+
+}
+
+func (ll *DoublyLinkedList) InsertAtPosition(position int, nodeToInsert *Node) {
+	// Write your code here.
 	// 10 <> 20 <> 30 <> 40 <> 50 <> 60 <> 70 | i want to add node 100 at 3rd position
 
 	if position == 1 {
-		ll.setHead(inputNode)
+		ll.SetHead(nodeToInsert)
 		return
 	}
 
 	node := ll.Head
 	currentPosition := 1
-
+	
 	for node != nil && currentPosition != position {
 		node = node.Next
 		currentPosition++
 	}
-	fmt.Println("node & currentPosition ", node.Value, currentPosition, position)
-	// now at the posiution
+	// now at that position
 	if node != nil {
-		ll.insertBefore(node, inputNode)
+		ll.InsertBefore(node, nodeToInsert)
 	} else {
-		ll.setTail(inputNode)
+		ll.SetTail(nodeToInsert)
 	}
 }
 
-// insertAfter inserts the new node after given node
-func (ll *DoublyLinkedList) insertAfter(node, inputNode *Node) {
-	// 10 <> 20 <> 30 <> 40 <> 50 <> 60 <> 70 | i want to add node 100 after node 30
-	if inputNode == ll.Head && inputNode == ll.Tail {
-		return
-	}
-	ll.remove(inputNode)
-
-	inputNode.Prev = node
-	inputNode.Next = node.Next
-
-	if node.Next == nil {
-		ll.Tail = inputNode
-	} else {
-		node.Next.Prev = inputNode
-	}
-	node.Next = inputNode
-}
-
-// removeNodesWithValue removes all nodes with the specified value.
-func (dll *DoublyLinkedList) removeNodesWithValue(value int) {
-	node := dll.Head
+func (ll *DoublyLinkedList) RemoveNodesWithValue(value int) {
+	// Write your code here.
+	node := ll.Head
 	for node != nil {
 		nextNode := node.Next
 		if node.Value == value {
-			dll.remove(node)
+			ll.Remove(node)
 		}
 		node = nextNode
 	}
 }
 
-//Remove removes the specified node from linkedlist
-func (ll *DoublyLinkedList) remove(node *Node) {
-	// is node is head
-	if node == ll.Head {
+func (ll *DoublyLinkedList) Remove(node *Node) {
+	// Write your code here.
+	// 10 <> 20 <> 30 <> 40 <> 50 <> 60 <> 70 <> 80 <> 90 // want to delete Node 30
+	if node == ll.Head{
 		ll.Head = ll.Head.Next
 	}
-	// if node is tail
+
 	if node == ll.Tail {
 		ll.Tail = ll.Tail.Prev
 	}
+
 	ll.unlinkNode(node)
+
 }
 
-// containsNodeWithValue checks if a node with the given value exists in the list.
-func (ll *DoublyLinkedList) containsNodeWithValue(value int) bool {
-	node := ll.Head
-	for node != nil {
-		if node.Value == value {
-			return true
-		}
-		node = node.Next
-	}
-	return false
-}
-
-//unlink Node disconnects the node from the linkedlist
 func (ll *DoublyLinkedList) unlinkNode(node *Node) {
-	// if node.PreviousNode is not null then point the node's prev next pointer to node's next
-	if node.Prev != nil {
-		node.Prev.Next = node.Next
-	}
-
+	// unlink node's prev & next if any. And then set node to  nil
 	if node.Next != nil {
 		node.Next.Prev = node.Prev
+	}
+
+	if node.Prev != nil {
+		node.Prev.Next = node.Next
 	}
 
 	node.Next = nil
 	node.Prev = nil
 }
+
+func (ll *DoublyLinkedList) ContainsNodeWithValue(value int) bool {
+	// Write your code here.
+	return false
+}
+
+func (ll *DoublyLinkedList) printForward() {
+	node := ll.Head
+
+	for node != nil {
+		fmt.Sprintf(" <-> %d", node.Value)
+		node = node.Next
+	}
+}
+
+func (ll *DoublyLinkedList) printBackward() {
+	node := ll.Head
+
+	for node != nil {
+		fmt.Sprintf(" <-> %d", node.Value)
+		node = node.Prev
+	}
+}
+
 
 // 10 <> 20 <> 30 <> 40 <> 50 <> 60 <> 70
 
