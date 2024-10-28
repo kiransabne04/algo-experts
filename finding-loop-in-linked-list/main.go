@@ -18,6 +18,7 @@ func main() {
 	// Check if the linked list has a cycle
 	_ = FindLoop(head)
 }
+
 func FindLoop(head *LinkedList) *LinkedList {
 	slow, fast := head, head
 
