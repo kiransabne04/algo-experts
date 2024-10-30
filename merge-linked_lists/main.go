@@ -10,19 +10,8 @@ type LinkedList struct {
 
 func MergeLinkedLists(headOne *LinkedList, headTwo *LinkedList) *LinkedList {
 	// Write your code here.
-	h1, h2 := headOne, headTwo
-	var currentNode *LinkedList
-
-	if h1.Value < h2.Value {
-		currentNode = h1
-		h1 = h1.Next
-	} else if h1.Value > h2.Value {
-		currentNode = h2
-		h2 = h2.Next
-	}
-
-	fmt.Println("currentNode , h1, h2 -> ", currentNode, h1, h2)
-	return nil
+	// set starting 
+	var mergedList *LinkedList
 }
 
 func main() {
