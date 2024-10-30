@@ -11,7 +11,41 @@ type LinkedList struct {
 func MergeLinkedLists(headOne *LinkedList, headTwo *LinkedList) *LinkedList {
 	// Write your code here.
 	// set starting 
-	var mergedList *LinkedList
+	var mergedListHead *LinkedList
+	if headOne.Value < headTwo.Value {
+		mergedListHead = headOne
+		headOne = headOne.Next
+	} else {
+		mergedListHead = headTwo
+		headTwo = headTwo.Next
+	}
+
+	// current to build mergedlist
+	current := mergedListHead
+
+	fmt.Println("mergedListHead -> ", mergedListHead, "headOneList -> ", headOne, "headTwoList -> ", headTwo)
+	for headOne != nil && headTwo != nil {
+		fmt.Println("headOne & headTwo -=> ", headOne, headTwo)
+		if headOne.Value < headTwo.Value {
+
+			current.Next = headOne
+			headOne = headOne.Next
+		} else {
+			current.Next = headTwo
+			headTwo = headTwo.Next
+		}
+		current = current.Next // moving current forward
+	}
+
+	// appending remaining elements of the list to the mergedList
+	if headOne != nil {
+		current.Next = headOne
+	} else if headTwo != nil {
+		current.Next  = headTwo
+	}
+
+	return mergedListHead
+
 }
 
 func main() {
