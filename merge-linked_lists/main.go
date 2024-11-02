@@ -10,7 +10,20 @@ type LinkedList struct {
 
 func MergeLinkedLists(headOne *LinkedList, headTwo *LinkedList) *LinkedList {
 	// Write your code here.
-	// set starting 
+	// Initialize the Starting Head:
+
+	// Set mergedListHead to the smaller of headOne or headTwo.
+	// Initialize a current pointer to keep track of the last node in the merged list as you build it.
+	// Traverse Both Lists:
+	
+	// As you compare nodes from headOne and headTwo, set current.Next to the smaller node and move current forward to current.Next.
+	// Attach Remaining Nodes:
+	
+	// When one list is exhausted, attach the remaining nodes of the other list to current.Next.
+	// Return the Head of the Merged List:
+	
+	// After merging, return the original mergedListHead
+	
 	var mergedListHead *LinkedList
 	if headOne.Value < headTwo.Value {
 		mergedListHead = headOne
