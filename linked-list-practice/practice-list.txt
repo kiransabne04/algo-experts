@@ -1,0 +1,215 @@
+Here’s a comprehensive list of linked list-related questions that are commonly asked in interviews, particularly for senior developers (such as those with 6+ years of experience) and frequently seen in MAANG and top IT companies. These questions cover various levels of difficulty, and many can be solved using Go.
+
+Each question focuses on a specific linked list concept or operation, which is key for advanced data structures and algorithm interviews.
+
+1. Reverse a Linked List
+Problem: Reverse a singly linked list. Implement both iterative and recursive approaches.
+Follow-up: Reverse only a portion of the linked list, such as between indices m and n.
+
+2. Detect and Remove Cycle in a Linked List
+Problem: Detect if a cycle (loop) exists in a linked list. If there is a cycle, find the starting node of the cycle.
+Approach: Use Floyd’s Cycle Detection Algorithm (slow and fast pointers).
+Follow-up: Remove the cycle from the linked list.
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> 3 (cycle starts again at node 3)
+Expected Output: true (for detection) and 1 -> 2 -> 3 -> 4 -> 5 -> null (for removal)
+
+3. Merge Two Sorted Linked Lists
+Problem: Merge two sorted linked lists and return a single sorted list.
+List 1: 1 -> 3 -> 5 -> null
+List 2: 2 -> 4 -> 6 -> null
+Expected Output: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
+
+
+4. Find Intersection Point of Two Linked Lists
+Problem: Given two singly linked lists, find the node at which they intersect.
+Approach: Use two-pointer technique to sync up the ends of the lists.
+List 1: 1 -> 2 -> 3 -> 4 -> 5 -> null
+List 2: 6 -> 4 -> 5 -> null (intersection starts from node 4)
+Expected Output: Node with value 4
+
+
+5. Remove N-th Node from the End of the List
+Problem: Remove the n-th node from the end of a singly linked list in one pass.
+Approach: Use two pointers with a fixed n-node gap.
+6. Reorder Linked List
+Problem: Given a linked list, reorder it to follow the pattern L0 -> Ln -> L1 -> Ln-1 -> L2 -> Ln-2 ....
+Approach: Find the middle of the list, reverse the second half, and merge the two halves.
+7. Flatten a Multilevel Doubly Linked List
+Problem: Given a doubly linked list where each node might have a child list, flatten the list so that all nodes appear in a single level.
+Follow-up: Reverse the flattened multilevel list.
+8. Rotate List by K Places
+Problem: Rotate a linked list by k nodes to the right.
+Variation: Rotate the list by k nodes to the left.
+Edge Case: Handle cases where k is larger than the length of the list.
+9. Split Linked List in Parts
+Problem: Split a linked list into k parts as evenly as possible.
+Follow-up: Return an array of the resulting linked lists.
+10. Clone a Linked List with Random Pointers
+Problem: Given a linked list where each node has a next pointer and a random pointer, create a deep copy of the list.
+Approach: Use a hash map or interleaving nodes to handle the random pointers.
+11. Add Two Numbers Represented by Linked Lists
+Problem: Given two linked lists representing two non-negative numbers, where each node contains a single digit, add the two numbers and return the sum as a linked list.
+Variation: The numbers may be stored in forward or reverse order.
+12. Sort a Linked List
+Problem: Sort a linked list in ascending order.
+Approach: Use merge sort (preferred for linked lists) or quick sort.
+Follow-up: Sort the list without modifying the node values (rearrange pointers).
+13. Palindrome Linked List
+Problem: Determine if a linked list is a palindrome.
+Approach: Find the middle of the list, reverse the second half, and compare the two halves.
+14. Linked List Cycle II
+Problem: Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+Approach: Use Floyd’s Cycle Detection and reset one pointer to the head to find the start of the cycle.
+15. Partition List Around a Value
+Problem: Partition a linked list around a value x, such that all nodes less than x come before nodes greater than or equal to x.
+Follow-up: Preserve the original relative order of the nodes in each partition.
+16. Delete Duplicates from a Sorted Linked List
+Problem: Remove duplicates from a sorted linked list.
+Variation: If duplicates are allowed, keep only one occurrence of each duplicate.
+17. Swap Nodes in Pairs
+Problem: Swap every two adjacent nodes in the linked list.
+Follow-up: Swap nodes in groups of k.
+18. Find the Middle of a Linked List
+Problem: Return the middle node of a linked list. If there are two middle nodes, return the second one.
+Approach: Use the slow and fast pointer technique.
+19. Remove Nodes with Greater Value on Right
+Problem: Remove all nodes from a linked list that have a greater value to the right of them.
+Approach: Traverse the list in reverse or use a stack for comparisons.
+20. Convert Sorted Linked List to Binary Search Tree
+Problem: Given a sorted linked list, convert it into a height-balanced binary search tree.
+Approach: Use a recursive function with slow and fast pointers or in-order traversal with global pointers.
+21. Reverse Nodes in k-Group
+Problem: Reverse nodes in k-group. If there are fewer than k nodes left, leave them as-is.
+Follow-up: Implement with constant extra space.
+22. Copy List with Arbitrary Pointer
+Problem: Copy a list where each node has a next pointer and a random pointer.
+Approach: Use hash maps or interweaving original and copy nodes.
+23. Intersection of Two Sorted Linked Lists
+Problem: Given two sorted linked lists, find their intersection.
+Follow-up: Use pointers to skip elements that don’t match.
+24. Remove All Occurrences of a Given Value
+Problem: Remove all occurrences of a given value from a linked list.
+Approach: Maintain a dummy node to simplify edge cases.
+25. Flatten a Linked List with Next and Child Pointers
+Problem: Flatten a linked list where each node has a next pointer and a child pointer that can point to another linked list.
+Approach: Use DFS or a stack for level-order traversal.
+Tips for Practicing
+Focus on Edge Cases: Many linked list questions are tricky because of edge cases (empty list, single node, cycles, etc.).
+Use Diagrams: Drawing diagrams of the list transformations can help visualize how pointers should be adjusted.
+Practice Both Iterative and Recursive Solutions: Especially for reversing or partitioning, knowing both methods is beneficial.
+Master Pointer Manipulation: Linked lists rely heavily on pointer adjustments; practice carefully managing Next, Prev, and dummy nodes.
+These questions should give you comprehensive practice across common linked list scenarios and prepare you well for high-level technical interviews.
+
+Here are inputs and expected outputs for each of the linked list questions mentioned, providing test cases you can use to validate your solutions.
+
+1. Reverse a Linked List
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null
+Expected Output: 5 -> 4 -> 3 -> 2 -> 1 -> null
+
+3. Merge Two Sorted Linked Lists
+Input:
+
+4. Find Intersection Point of Two Linked Lists
+Input:
+
+
+
+
+5. Remove N-th Node from the End of the List
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null, n = 2
+Expected Output: 1 -> 2 -> 3 -> 5 -> null
+
+6. Reorder Linked List
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null
+Expected Output: 1 -> 5 -> 2 -> 4 -> 3 -> null
+
+7. Flatten a Multilevel Doubly Linked List
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null with 3 -> 7 -> 8 -> null as a child of 3
+Expected Output: 1 -> 2 -> 3 -> 7 -> 8 -> 4 -> 5 -> null
+
+8. Rotate List by K Places
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null, k = 2
+Expected Output: 4 -> 5 -> 1 -> 2 -> 3 -> null
+
+9. Split Linked List in Parts
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null, k = 3
+Expected Output: [1 -> 2 -> null, 3 -> 4 -> null, 5 -> null]
+
+10. Clone a Linked List with Random Pointers
+Input: 1 -> 2 -> 3 -> null with random pointers set to various nodes
+Expected Output: A deep copy of the list with random pointers correctly cloned
+
+11. Add Two Numbers Represented by Linked Lists
+Input:
+
+List 1: 2 -> 4 -> 3 -> null (representing 342)
+List 2: 5 -> 6 -> 4 -> null (representing 465)
+Expected Output: 7 -> 0 -> 8 -> null (representing 807)
+12. Sort a Linked List
+Input: 4 -> 2 -> 1 -> 3 -> null
+Expected Output: 1 -> 2 -> 3 -> 4 -> null
+
+13. Palindrome Linked List
+Input: 1 -> 2 -> 2 -> 1 -> null
+Expected Output: true
+
+14. Linked List Cycle II
+Input: 3 -> 2 -> 0 -> -4 -> 2 (cycle starts again at node 2)
+Expected Output: Node with value 2
+
+15. Partition List Around a Value
+Input: 1 -> 4 -> 3 -> 2 -> 5 -> 2 -> null, x = 3
+Expected Output: 1 -> 2 -> 2 -> 4 -> 3 -> 5 -> null
+
+16. Delete Duplicates from a Sorted Linked List
+Input: 1 -> 1 -> 2 -> 3 -> 3 -> null
+Expected Output: 1 -> 2 -> 3 -> null
+
+17. Swap Nodes in Pairs
+Input: 1 -> 2 -> 3 -> 4 -> null
+Expected Output: 2 -> 1 -> 4 -> 3 -> null
+
+18. Find the Middle of a Linked List
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null
+Expected Output: Node with value 3
+
+19. Remove Nodes with Greater Value on Right
+Input: 10 -> 20 -> 15 -> 5 -> null
+Expected Output: 20 -> 15 -> 5 -> null
+
+20. Convert Sorted Linked List to Binary Search Tree
+Input: -10 -> -3 -> 0 -> 5 -> 9 -> null
+Expected Output: Height-balanced BST:
+
+markdown
+Copy code
+       0
+      / \
+    -10  5
+       \   \
+       -3   9
+21. Reverse Nodes in k-Group
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null, k = 3
+Expected Output: 3 -> 2 -> 1 -> 4 -> 5 -> null
+
+22. Copy List with Arbitrary Pointer
+Input: A list with nodes having next and random pointers set to various nodes
+Expected Output: A deep copy of the list with random pointers correctly cloned
+
+23. Intersection of Two Sorted Linked Lists
+Input:
+
+List 1: 1 -> 2 -> 3 -> 4 -> 6 -> null
+List 2: 2 -> 4 -> 6 -> 8 -> null
+Expected Output: 2 -> 4 -> 6 -> null
+24. Remove All Occurrences of a Given Value
+Input: 1 -> 2 -> 6 -> 3 -> 4 -> 5 -> 6 -> null, value = 6
+Expected Output: 1 -> 2 -> 3 -> 4 -> 5 -> null
+
+25. Flatten a Linked List with Next and Child Pointers
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> null where node 3 has a child 7 -> 8 -> null
+Expected Output: 1 -> 2 -> 3 -> 7 -> 8 -> 4 -> 5 -> null
+
+
+
+
