@@ -5,3 +5,4 @@ package main
 // List 1: 1 -> 2 -> 3 -> 4 -> 5 -> null
 // List 2: 6 -> 4 -> 5 -> null (intersection starts from node 4)
 // Expected Output: Node with value 4
+
