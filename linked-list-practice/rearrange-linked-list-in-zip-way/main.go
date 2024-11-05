@@ -25,12 +25,29 @@ func reorderLinkedList(head *LinkedList) *LinkedList {
 	fmt.Println("slowPtr & fastPtr ", slowPtr, fastPtr)
 
 	previousNode.Next = nil
+	firstPart := head
 	secondPart := reverseLinkedList(slowPtr)
 
-	displayNodes(head)
+	displayNodes(firstPart)
 	displayNodes(secondPart)
 
-	return nil
+	for firstPart != nil && secondPart != nil {
+		firstNext := firstPart.Next
+		secondNext := secondPart.Next
+
+		firstPart.Next = secondPart
+		if firstNext == nil {
+			break
+		}
+
+		secondPart.Next = firstNext
+
+		firstPart = firstNext
+		secondPart = secondNext
+	}
+
+	displayNodes(head)
+	return head
 }
 
 func reverseLinkedList(head *LinkedList) *LinkedList {
