@@ -43,6 +43,7 @@ Expected Output: 1 -> 5 -> 2 -> 4 -> 3 -> null
 7. Flatten a Multilevel Doubly Linked List
 Problem: Given a doubly linked list where each node might have a child list, flatten the list so that all nodes appear in a single level.
 Follow-up: Reverse the flattened multilevel list.
+
 8. Rotate List by K Places
 Problem: Rotate a linked list by k nodes to the right.
 Variation: Rotate the list by k nodes to the left.
@@ -130,6 +131,7 @@ Input:
 7. Flatten a Multilevel Doubly Linked List
 Input: 1 -> 2 -> 3 -> 4 -> 5 -> null with 3 -> 7 -> 8 -> null as a child of 3
 Expected Output: 1 -> 2 -> 3 -> 7 -> 8 -> 4 -> 5 -> null
+
 
 8. Rotate List by K Places
 Input: 1 -> 2 -> 3 -> 4 -> 5 -> null, k = 2

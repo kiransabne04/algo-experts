@@ -16,8 +16,67 @@ type DoublyLinkedList struct {
 	Child *DoublyLinkedList
 }
 
-func flattenList(head *DoublyLinkedList) {
+func flattenList(head *DoublyLinkedList) *DoublyLinkedList {
 
+	current := head
+
+	for current != nil {
+		if current.Child != nil {
+			// check for child & change the first part pointers
+
+			//store the nextNode of the current, to append at the end of the child list later to flatten
+			nextNode := current.Next
+
+			//childhead
+			childHead := flattenList(current.Child)
+
+			//currentNode and childhead node prointers arrangement
+			current.Next = childHead
+			childHead.Prev = current
+			current.Child = nil
+
+			// find tail in child list
+			tailPtr := childHead
+			for tailPtr.Next != nil {
+				tailPtr = tailPtr.Next
+			}
+			// Connect the tail of the flattened child list to the next node
+			if nextNode != nil {
+				tailPtr.Next = nextNode
+				nextNode.Prev = tailPtr
+			}
+
+		}
+		current = current.Next
+	}
+	printList(head)
+	printList(reverseDll(head))
+	return head
+
+}
+
+func reverseDll(head *DoublyLinkedList) *DoublyLinkedList {
+
+	var temp *DoublyLinkedList
+	current := head
+
+	// Traverse the list and swap `Next` and `Prev` for each node
+	for current != nil {
+		// Swap the `Next` and `Prev` pointers
+		temp = current.Prev
+		current.Prev = current.Next
+		current.Next = temp
+
+		// Move `current` to the next node in the original list, which is `current.Prev` after the swap
+		current = current.Prev
+	}
+
+	// After the loop, `temp` will be at the last node, which is the new head
+	if temp != nil {
+		head = temp.Prev
+	}
+
+	return head
 }
 
 func main() {
@@ -50,6 +109,7 @@ func main() {
 
 	// Display the list to verify
 	printList(node1)
+	flattenList(node1)
 }
 
 func printList(head *DoublyLinkedList) {
