@@ -33,20 +33,25 @@ func findCycle(head *LinkedList) *LinkedList {
 	}
 	fmt.Println("slowPtr & fastPtr ", slowPtr, fastPtr)
 	slowPtr = head
-	fmt.Println("slowPtr ", slowPtr)
+	fmt.Println("slowPtr ", slowPtr, fastPtr)
 	for slowPtr != fastPtr {
 		slowPtr = slowPtr.Next
 		fastPtr = fastPtr.Next
 	}
+	fmt.Println("slowPtr & fastPtr ", slowPtr, fastPtr)
 
 	cycleStart := slowPtr
+	fmt.Println("cyclestart -< ", cycleStart)
 	ptr := cycleStart
+	fmt.Println("ptr -< ", ptr)
 	for ptr.Next != cycleStart {
+
 		ptr = ptr.Next
+		fmt.Println("ptr -<, cycleStart -> ", ptr, cycleStart)
 	}
-
+	fmt.Println("slowPtr & fastPtr ", slowPtr, fastPtr)
 	ptr.Next = nil
-
+	fmt.Println("slowPtr & fastPtr ", slowPtr, fastPtr)
 	//displayNodes(head)
 
 	return head
@@ -60,7 +65,7 @@ func displayNodes(list *LinkedList) {
 	fmt.Println()
 }
 
-func main(){
+func main() {
 
 	list := &LinkedList{Value: 1}
 	list.Next = &LinkedList{Value: 2}
